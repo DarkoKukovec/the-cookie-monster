@@ -5,11 +5,24 @@
   "description": "Removes the annoying Cookie notifications from various web sites",
   "version": "1.0",
 
+  "permissions": [
+    "contextMenus",
+    "https://api.parse.com/"
+  ],
+
+  "icons": {
+    "16": "icon-16.png"
+  },
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
+      "css": ["monster.css"],
       "js": ["monster.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
+  "background": {
+    "scripts": ["report.js"]
+  }
 }
