@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "The Cookie Monster",
+  "description": "Removes the annoying Cookie notifications from various web sites",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["monster.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
