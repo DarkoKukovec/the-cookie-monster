@@ -19,9 +19,19 @@ h1 {
   color: #777;
   font-weight: bold;
 }
+.update-status {
+  display: none;
+}
+.updating button {
+  display: none;
+}
+.updating .update-status {
+  display: inline;
+}
+
 table {
   width: 100%;
-  margin-top: 30px;
+  margin: 20px 0;
 }
 td, th {
   padding: 5px;
@@ -35,13 +45,4 @@ tr:nth-child(2n) {
 }
 tr:nth-child(2) {
   font-weight: bold;
-}
-.update-status {
-  display: none;
-}
-.updating button {
-  display: none;
-}
-.updating .update-status {
-  display: inline;
 }

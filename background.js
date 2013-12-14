@@ -4,15 +4,12 @@ var restKey = 'ICp5oCWSTYXA4RnP1gaLqIP6ilJkOq4r3nM0K08A';
 var updateInterval = 60 * 60 * 1000;
 
 // Create one test item for each context type.
-var contexts = ["page","selection","link","editable","image","video",
-                "audio"];
+var contexts = ['page', 'selection', 'link', 'editable', 'image', 'video', 'audio'];
 for (var i = 0; i < contexts.length; i++) {
-  var context = contexts[i];
-  var title = "Omnomnom this page";
   var id = chrome.contextMenus.create({
-    "title": title,
-    "contexts":[context],
-    "onclick": reportPage
+    'title': 'Omnomnom this page',
+    'contexts': [contexts[i]],
+    'onclick': reportPage
   });
 }
 
@@ -21,25 +18,17 @@ var lastUpdateTime = localStorage.lastUpdateTime ? new Date(localStorage.lastUpd
 var selectors = localStorage.selectors ? JSON.parse(localStorage.selectors) : {};
 
 // Return the selector for a hostname in the tab
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    if (request.update) {
-      fetchUpdate(function() {
-        sendResponse(null);
-      });
-    } else if (request.hostname) {
-      var host = request.hostname.split('.');
-      while(host.length) {
-        var hostname = host.join('.');
-        if (selectors[hostname]) {
-          sendResponse(selectors[hostname].selector);
-          return;
-        }
-        host.shift();
-      }
-      sendResponse(selectors['global'].selector);
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  var host = request.hostname.split('.');
+  while(host.length) {
+    if (selectors[host.join('.')]) {
+      sendResponse(selectors[host.join('.')].selector);
+      return;
     }
-  });
+    host.shift();
+  }
+  sendResponse(selectors.global && selectors.global.selector);
+});
 
 // Auto update
 setInterval(fetchUpdate, updateInterval);
@@ -47,7 +36,7 @@ fetchUpdate();
 function fetchUpdate(callback) {
   var updateUrl = 'https://api.parse.com/1/classes/Blocked';
   var updateDate = new Date(lastUpdateTime);
-  updateDate.setDate(updateDate.getDate() - 1); // Update for a day more - just to avoid the timezone confusion
+  updateDate.setDate(updateDate.getDate() - 1); // Update for a day back - just to avoid the timezone confusion
   var data = {
     updatedAt: {
       $gt: {
@@ -85,7 +74,7 @@ function reportPage() {
           url: url.href,
           ua: window.navigator.userAgent
         };
-        doRequest(reportUrl, data, function() {});
+        doRequest(reportUrl, data);
       }
     });
   });
@@ -94,7 +83,7 @@ function reportPage() {
 function doRequest(url, data, callback) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200 && callback) {
       callback(xmlhttp);
     }
   };

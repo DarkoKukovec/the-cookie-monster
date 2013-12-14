@@ -25,13 +25,12 @@ function updateData() {
   keys.sort();
   keys.unshift('global');
   for (var j = 0; j < keys.length; j++) {
-    page = keys[j];
     var url = document.createElement('td');
-    url.innerHTML = page === 'global' ? 'Catch all' : page;
+    url.innerHTML = keys[j] === 'global' ? 'Catch all' : keys[j];
     var lastUpdated = document.createElement('td');
-    lastUpdated.innerHTML = (new Date(selectors[page].updatedAt)).toLocaleString();
+    lastUpdated.innerHTML = (new Date(selectors[keys[j]].updatedAt)).toLocaleString();
     var selector = document.createElement('td');
-    selector.innerHTML = selectors[page].selector;
+    selector.innerHTML = selectors[keys[j]].selector;
     var tr = document.createElement('tr');
     tr.appendChild(url);
     tr.appendChild(lastUpdated);
