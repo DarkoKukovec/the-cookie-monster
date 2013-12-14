@@ -18,12 +18,12 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["monster.css"],
       "js": ["monster.js"],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "background": {
-    "scripts": ["report.js"]
-  }
+    "scripts": ["background.js"]
+  },
+  "options_page": "options.html"
 }
