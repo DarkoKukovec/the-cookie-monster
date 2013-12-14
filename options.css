@@ -1,0 +1,47 @@
+body {
+  color: #000;
+  background-color: #f0f0f0;
+  font-family: Arial, serif;
+  font-size: 14px;
+  width: 90%;
+  margin: auto;
+}
+
+h1 {
+  padding-left: 60px;
+  background-image: url(icon-48.png);
+  background-repeat: no-repeat;
+  height: 48px;
+  line-height: 48px;
+}
+
+.update-time {
+  color: #777;
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  margin-top: 30px;
+}
+td, th {
+  padding: 5px;
+}
+th {
+  text-align: left;
+  border-bottom: 1px solid #777;
+}
+tr:nth-child(2n) {
+  background-color: #ddd;
+}
+tr:nth-child(2) {
+  font-weight: bold;
+}
+.update-status {
+  display: none;
+}
+.updating button {
+  display: none;
+}
+.updating .update-status {
+  display: inline;
+}
