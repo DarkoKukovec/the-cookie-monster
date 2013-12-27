@@ -22,12 +22,18 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   var host = request.hostname.split('.');
   while(host.length) {
     if (selectors[host.join('.')]) {
-      sendResponse(selectors[host.join('.')].selector);
+      sendResponse({
+        container: selectors[host.join('.')].selector,
+        button: selectors[host.join('.')].buttonSelector
+      });
       return;
     }
     host.shift();
   }
-  sendResponse(selectors.global && selectors.global.selector);
+  sendResponse({
+    container: selectors.global && selectors.global.selector,
+    button: selectors.global && selectors.global.buttonSelector
+  });
 });
 
 // Auto update

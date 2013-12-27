@@ -31,10 +31,13 @@ function updateData() {
     lastUpdated.innerHTML = (new Date(selectors[keys[j]].updatedAt)).toLocaleString();
     var selector = document.createElement('td');
     selector.innerHTML = selectors[keys[j]].selector;
+    var buttonSelector = document.createElement('td');
+    buttonSelector.innerHTML = selectors[keys[j]].buttonSelector;
     var tr = document.createElement('tr');
     tr.appendChild(url);
     tr.appendChild(lastUpdated);
     tr.appendChild(selector);
+    tr.appendChild(buttonSelector);
     table.appendChild(tr);
   }
 }
