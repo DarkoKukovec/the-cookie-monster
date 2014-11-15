@@ -1,7 +1,7 @@
 // Parse
 var appID = 'H4DnNHgXcQVxwnUoHiO5L8umYjwBJmIdJDAzPSQg';
 var restKey = 'ICp5oCWSTYXA4RnP1gaLqIP6ilJkOq4r3nM0K08A';
-var updateInterval = 60 * 60 * 1000;
+var updateInterval = 24 * 60 * 60 * 1000; // Every 24 hours
 
 // Create one test item for each context type.
 var contexts = ['page', 'selection', 'link', 'editable', 'image', 'video', 'audio'];

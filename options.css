@@ -1,23 +1,62 @@
 body {
   color: #000;
-  background-color: #f0f0f0;
-  font-family: Arial, serif;
+  font-family: Roboto, Arial, serif;
   font-size: 14px;
   width: 90%;
   margin: auto;
+  background: #499bea;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#499bea), color-stop(100%,#207ce5));
+  background: -webkit-linear-gradient(top,  #499bea 0%,#207ce5 100%);
+  background: linear-gradient(to bottom,  #499bea 0%,#207ce5 100%);
+  background-attachment: fixed;
 }
 
 h1 {
-  padding-left: 60px;
-  background-image: url(icon-48.png);
+  font-family: 'Gloria Hallelujah', cursive;
+  padding-left: 140px;
+  background-image: url(assets/icon-256.png);
   background-repeat: no-repeat;
-  height: 48px;
-  line-height: 48px;
+  background-size: 128px;
+  height: 128px;
+  line-height: 128px;
+  color: #EAEEF1;
+  font-size: 64px;
+  font-weight: normal;
+  margin: 32px auto;
+  letter-spacing: 3px;
+  width: 680px;
+  text-shadow: -3px 2px 2px #000;
+}
+
+.content {
+  background: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(50%,#d5dce2), color-stop(100%,#ffffff));
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#d5dce2 50%,#ffffff 100%);
+  background: linear-gradient(to bottom,  #ffffff 0%,#d5dce2 50%,#ffffff 100%);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 48px;
+  border: 8px solid #C9D2D3;
+}
+
+.update {
+  padding: 0 0 16px;
+  text-align: right;
+  color: #777;
+}
+
+.update button {
+  color: #000;
+  background-color: #C9D2D3;
+  border-radius: 8px;
+  border: 0;
+  font-size: 14px;
+  padding: 6px 10px;
 }
 
 .update-time {
-  color: #777;
-  font-weight: bold;
+  color: #000;
+  padding-right: 16px;
 }
 .update-status {
   display: none;
@@ -31,18 +70,25 @@ h1 {
 
 table {
   width: 100%;
-  margin: 20px 0;
+  border-spacing: 0;
 }
 td, th {
-  padding: 5px;
+  padding: 8px;
 }
 th {
   text-align: left;
-  border-bottom: 1px solid #777;
+  font-size: 18px;
+  padding-bottom: 16px;
 }
 tr:nth-child(2n) {
-  background-color: #ddd;
+  background-color: #C9D2D3;
 }
 tr:nth-child(2) {
   font-weight: bold;
+}
+td:first-child {
+  border-radius: 8px 0 0 8px;
+}
+td:last-child {
+  border-radius: 0 8px 8px 0;
 }
