@@ -7,14 +7,12 @@ Removes the annoying Cookie notifications from various web sites
 
 ### The easy way
 
-1. [Download](https://docs.google.com/uc?authuser=0&id=0BxmwwQWC2nGAUDcxTUNXSG5UUjQ&export=download) the extension
-2. Open it with Chrome
+Install from the [Chrome Web Store](https://chrome.google.com/webstore/detail/the-cookie-monster/cjpljjfadjkfblhldfmhpdkoecljkghe)
 
-
-### The hard way (Windows)
+### From source code
 
 1. Clone this repository
 2. Open chrome://extensions/
 3. Turn developer mode on
 4. "Load unpacked extension..."
-5. Choose the folder this repository is cloned into
+5. Choose the "source" folder of this repository
