@@ -51,7 +51,7 @@ function fetchUpdate(callback) {
       }
     }
   };
-  doRequest(updateUrl + '?where=' + JSON.stringify(data), null, function(response) {
+  doRequest(updateUrl + '?limit=1000&where=' + JSON.stringify(data), null, function(response) {
     // Parse update data
     var blocked = JSON.parse(response.responseText);
     for (var i = 0; i < blocked.results.length; i++) {
